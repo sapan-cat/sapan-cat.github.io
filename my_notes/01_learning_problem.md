@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: The Learning Problem
-permalink: /01_learning_problem/
+permalink: /my_notes/01_learning_problem/
 ---
 
 Table of Contents:
