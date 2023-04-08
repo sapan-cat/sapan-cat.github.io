@@ -18,7 +18,7 @@ Table of Contents:
 Consider the problem of predicting how a movie viewer would rate the various movies out there [[The Netflix Prize]](https://www.thrillist.com/entertainment/nation/the-netflix-prize).
 
 <div class="fig figcenter fighighlight">
-  <img src="images/01_learning_problem/netflix_prize.png" width="60%" height="60%" >
+  <img src="/images/01_learning_problem/netflix_prize.png" width="60%" height="60%" >
   <div class="figcaption"></div>
 </div>
 
@@ -28,7 +28,7 @@ Given we know <u>what movies a viewer like (comedy, action, romance,.. )</u> & <
 
 The learning problem can be formalized as:
 
-- Input \(x\) (viewer likings)
+- Input \\(x\\) (viewer likings)
 - Output \(y\) (rating)
 - Target function \(f: X \mapsto Y\)
 - Data: \((x_1, y_1), (x_2, y_2), (x_3, y_3), …\)
