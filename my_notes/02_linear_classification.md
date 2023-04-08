@@ -1,6 +1,8 @@
 ---
 layout: page
-permalink: /linear-classify/
+mathjax: true
+title: Linear Classification
+permalink: /my_notes/02_linear_classification/
 ---
 
 Table of Contents:
@@ -40,7 +42,7 @@ $$
 f(x_i, W, b) =  W x_i + b
 $$
 
-In the above equation, we are assuming that the image \\(x_i\\) has all of its pixels flattened out to a single column vector of shape [D x 1]. The matrix **W** (of size [K x D]), and the vector **b** (of size [K x 1]) are the **parameters** of the function. In CIFAR-10, \\(x_i\\) contains all pixels in the i-th image flattened into a single [3072 x 1] column, **W** is [10 x 3072] and **b** is [10 x 1], so 3072 numbers come into the function (the raw pixel values) and 10 numbers come out (the class scores). The parameters in **W** are often called the **weights**, and **b** is called the **bias vector** because it influences the output scores, but without interacting with the actual data \\(x_i\\). However, you will often hear people use the terms _weights_ and _parameters_ interchangeably.
+In the above equation, we are assuming that the image \\(x*i\\) has all of its pixels flattened out to a single column vector of shape [D x 1]. The matrix **W** (of size [K x D]), and the vector **b** (of size [K x 1]) are the **parameters** of the function. In CIFAR-10, \\(x_i\\) contains all pixels in the i-th image flattened into a single [3072 x 1] column, **W** is [10 x 3072] and **b** is [10 x 1], so 3072 numbers come into the function (the raw pixel values) and 10 numbers come out (the class scores). The parameters in **W** are often called the **weights**, and **b** is called the **bias vector** because it influences the output scores, but without interacting with the actual data \\(x_i\\). However, you will often hear people use the terms \_weights* and _parameters_ interchangeably.
 
 There are a few things to note:
 
@@ -93,7 +95,7 @@ $$
 f(x_i, W, b) =  W x_i + b
 $$
 
-As we proceed through the material it is a little cumbersome to keep track of two sets of parameters (the biases \\(b\\) and weights \\(W\\)) separately. A commonly used trick is to combine the two sets of parameters into a single matrix that holds both of them by extending the vector \\(x_i\\) with one additional dimension that always holds the constant \\(1\\) - a default _bias dimension_. With the extra dimension, the new score function will simplify to a single matrix multiply:
+As we proceed through the material it is a little cumbersome to keep track of two sets of parameters (the biases \\(b\\) and weights \\(W\\)) separately. A commonly used trick is to combine the two sets of parameters into a single matrix that holds both of them by extending the vector \\(x*i\\) with one additional dimension that always holds the constant \\(1\\) - a default \_bias dimension*. With the extra dimension, the new score function will simplify to a single matrix multiply:
 
 $$
 f(x_i, W) =  W x_i
@@ -183,7 +185,7 @@ Where \\(N\\) is the number of training examples. As you can see, we append the 
 
 In addition to the motivation we provided above there are many desirable properties to include the regularization penalty, many of which we will come back to in later sections. For example, it turns out that including the L2 penalty leads to the appealing **max margin** property in SVMs (See [CS229](http://cs229.stanford.edu/notes/cs229-notes3.pdf) lecture notes for full details if you are interested).
 
-The most appealing property is that penalizing large weights tends to improve generalization, because it means that no input dimension can have a very large influence on the scores all by itself. For example, suppose that we have some input vector \\(x = [1,1,1,1] \\) and two weight vectors \\(w_1 = [1,0,0,0]\\), \\(w_2 = [0.25,0.25,0.25,0.25] \\). Then \\(w_1^Tx = w_2^Tx = 1\\) so both weight vectors lead to the same dot product, but the L2 penalty of \\(w_1\\) is 1.0 while the L2 penalty of \\(w_2\\) is only 0.5. Therefore, according to the L2 penalty the weight vector \\(w_2\\) would be preferred since it achieves a lower regularization loss. Intuitively, this is because the weights in \\(w_2\\) are smaller and more diffuse. Since the L2 penalty prefers smaller and more diffuse weight vectors, the final classifier is encouraged to take into account all input dimensions to small amounts rather than a few input dimensions and very strongly. As we will see later in the class, this effect can improve the generalization performance of the classifiers on test images and lead to less _overfitting_.
+The most appealing property is that penalizing large weights tends to improve generalization, because it means that no input dimension can have a very large influence on the scores all by itself. For example, suppose that we have some input vector \\(x = [1,1,1,1] \\) and two weight vectors \\(w*1 = [1,0,0,0]\\), \\(w_2 = [0.25,0.25,0.25,0.25] \\). Then \\(w_1^Tx = w_2^Tx = 1\\) so both weight vectors lead to the same dot product, but the L2 penalty of \\(w_1\\) is 1.0 while the L2 penalty of \\(w_2\\) is only 0.5. Therefore, according to the L2 penalty the weight vector \\(w_2\\) would be preferred since it achieves a lower regularization loss. Intuitively, this is because the weights in \\(w_2\\) are smaller and more diffuse. Since the L2 penalty prefers smaller and more diffuse weight vectors, the final classifier is encouraged to take into account all input dimensions to small amounts rather than a few input dimensions and very strongly. As we will see later in the class, this effect can improve the generalization performance of the classifiers on test images and lead to less \_overfitting*.
 
 Note that biases do not have the same effect since, unlike the weights, they do not control the strength of influence of an input dimension. Therefore, it is common to only regularize the weights \\(W\\) but not the biases \\(b\\). However, in practice this often turns out to have a negligible effect. Lastly, note that due to the regularization penalty we can never achieve loss of exactly 0.0 on all examples, because this would only be possible in the pathological setting of \\(W = 0\\).
 
@@ -262,7 +264,7 @@ where \\(C\\) is a hyperparameter, and \\(y_i \in \\{ -1,1 \\} \\). You can conv
 
 ### Softmax classifier
 
-It turns out that the SVM is one of two commonly seen classifiers. The other popular choice is the **Softmax classifier**, which has a different loss function. If you've heard of the binary Logistic Regression classifier before, the Softmax classifier is its generalization to multiple classes. Unlike the SVM which treats the outputs \\(f(x_i,W)\\) as (uncalibrated and possibly difficult to interpret) scores for each class, the Softmax classifier gives a slightly more intuitive output (normalized class probabilities) and also has a probabilistic interpretation that we will describe shortly. In the Softmax classifier, the function mapping \\(f(x_i; W) = W x_i\\) stays unchanged, but we now interpret these scores as the unnormalized log probabilities for each class and replace the _hinge loss_ with a **cross-entropy loss** that has the form:
+It turns out that the SVM is one of two commonly seen classifiers. The other popular choice is the **Softmax classifier**, which has a different loss function. If you've heard of the binary Logistic Regression classifier before, the Softmax classifier is its generalization to multiple classes. Unlike the SVM which treats the outputs \\(f(x*i,W)\\) as (uncalibrated and possibly difficult to interpret) scores for each class, the Softmax classifier gives a slightly more intuitive output (normalized class probabilities) and also has a probabilistic interpretation that we will describe shortly. In the Softmax classifier, the function mapping \\(f(x_i; W) = W x_i\\) stays unchanged, but we now interpret these scores as the unnormalized log probabilities for each class and replace the \_hinge loss* with a **cross-entropy loss** that has the form:
 
 $$
 L_i = -\log\left(\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }\right) \hspace{0.5in} \text{or equivalently} \hspace{0.5in} L_i = -f_{y_i} + \log\sum_j e^{f_j}
@@ -284,7 +286,7 @@ $$
 P(y_i \mid x_i; W) = \frac{e^{f_{y_i}}}{\sum_j e^{f_j} }
 $$
 
-can be interpreted as the (normalized) probability assigned to the correct label \\(y_i\\) given the image \\(x_i\\) and parameterized by \\(W\\). To see this, remember that the Softmax classifier interprets the scores inside the output vector \\(f\\) as the unnormalized log probabilities. Exponentiating these quantities therefore gives the (unnormalized) probabilities, and the division performs the normalization so that the probabilities sum to one. In the probabilistic interpretation, we are therefore minimizing the negative log likelihood of the correct class, which can be interpreted as performing _Maximum Likelihood Estimation_ (MLE). A nice feature of this view is that we can now also interpret the regularization term \\(R(W)\\) in the full loss function as coming from a Gaussian prior over the weight matrix \\(W\\), where instead of MLE we are performing the _Maximum a posteriori_ (MAP) estimation. We mention these interpretations to help your intuitions, but the full details of this derivation are beyond the scope of this class.
+can be interpreted as the (normalized) probability assigned to the correct label \\(y*i\\) given the image \\(x_i\\) and parameterized by \\(W\\). To see this, remember that the Softmax classifier interprets the scores inside the output vector \\(f\\) as the unnormalized log probabilities. Exponentiating these quantities therefore gives the (unnormalized) probabilities, and the division performs the normalization so that the probabilities sum to one. In the probabilistic interpretation, we are therefore minimizing the negative log likelihood of the correct class, which can be interpreted as performing \_Maximum Likelihood Estimation* (MLE). A nice feature of this view is that we can now also interpret the regularization term \\(R(W)\\) in the full loss function as coming from a Gaussian prior over the weight matrix \\(W\\), where instead of MLE we are performing the _Maximum a posteriori_ (MAP) estimation. We mention these interpretations to help your intuitions, but the full details of this derivation are beyond the scope of this class.
 
 <a name='softmax-stability'></a>
 
