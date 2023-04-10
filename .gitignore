@@ -120,3 +120,6 @@ runs/
 temp*
 debug_*
 *.swp
+_site/
+.jekyll-cache/
+.vscode/
