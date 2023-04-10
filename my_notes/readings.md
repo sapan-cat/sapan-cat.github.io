@@ -22,4 +22,3 @@ Table of Contents:
 <a name='intro'></a>
 
 ## Introduction
-Lets say we have a 
