@@ -1,0 +1,28 @@
+.r { color: rgb(249,38,114) }
+.g { color: rgb(166,226,46) }
+.b { color: rgb(129,154,255) }
+.c { color: rgb(102,217,239) }
+.m { color: rgb(174,129,255) }
+.y { color: rgb(226,226,46) }
+
+.admonition>.admonition-title {
+  /* top,  -, bottom, */
+  margin: -0.0rem -1.2rem -0.0rem -1.2rem;
+  padding: 0.4rem 0rem 0.4rem 2.0rem;
+  border-bottom: 0px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 400;
+}
+
+.admonition>.admonition-title:before {
+    position: absolute;
+    left: 0.2rem;
+    font-size: 1.5rem;
+    color: rgba(68, 138, 255, .8);
+    content: "\E3C9";
+  }
+  
+  .vscode-light kbd {
+    color: #444d56;
+    background-color: #fafbfc;
+  }

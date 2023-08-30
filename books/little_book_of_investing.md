@@ -11,9 +11,8 @@ Table of Contents:
     - [Defintions](#defintions)
     - [References:](#references)
 
-# Chapter 1: Introduction
 
-Notes:
+## Chapter 1: Introduction
 
 1. The index fund eliminates the risks of individual stocks, market sectors, and manager selection. Only stock market risk remains.
 2. Before the deduction of the costs of investing, beating the stock market is a zero-sum game, examples options, futures, derivatives, etc because the contracts are agreements between two parties, and, if one person loses, then the other party gains. In economics, trade and exchange are thought to be examples of a positive sum game.
