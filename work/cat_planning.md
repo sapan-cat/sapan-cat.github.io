@@ -10,9 +10,11 @@ Table of Contents:
 - [Section Meeting](#section-meeting)
   - [People](#people)
 - [Planning Team Sync (Bi-Weekly)](#planning-team-sync-bi-weekly)
+  - [August 31, 2023](#august-31-2023)
   - [August 17, 2023](#august-17-2023)
     - [Payam's Presentation](#payams-presentation)
     - [Questions on CfH, CfU Planning](#questions-on-cfh-cfu-planning)
+- [](#)
 
 ## ToDos
 !!! danger **High**
@@ -57,6 +59,12 @@ Table of Contents:
 
 ## Planning Team Sync (Bi-Weekly)
 
+### August 31, 2023
+
+1. [Reusable Element 2023Q3 Road Show](https://caterpillar.sharepoint.com/:p:/r/teams/CatDevelopmentGroup2/_layouts/15/Doc.aspx?sourcedoc=%7B47A7E5BB-A6C7-4047-808E-FD524B964E0E%7D&file=devops-618105%20RE%20WS%202023Q3%20Road%20Show.pptx&action=edit&mobileredirect=true) -  Nicolas Vandapel
+
+2. [Using V Models for Testing](https://insights.sei.cmu.edu/blog/using-v-models-for-testing/)
+
 ### August 17, 2023
 #### Payam's Presentation
 1. [Presentation](https://caterpillar.sharepoint.com/:p:/r/teams/1APlanning251Group/_layouts/15/Doc.aspx?sourcedoc=%7BA3BD6B1D-A71F-4654-B393-41F41E6074B4%7D&file=ml-terrain-manipulation-model.pptx&action=edit&mobileredirect=true)
@@ -83,3 +91,20 @@ Table of Contents:
 5. What's the state of CfH, CfU Planning ? 
 6. How can we align 1APlanning goals with current & future states of CfH/CfU ?
 7. Payam link for AHS presentation videos.
+
+
+## 
+
+1. Ros node 
+   1. that accepts the commands to send implement joint commands
+   2. Given
+      1. Angle of attack
+      2. Goal position
+   3. Find the path to move the robot to the 
+   4. Obs Detection only -> Stop if obstacle in path
+   5. Spline based path planning 
+      1. Can be imposed curvaturing
+      2. Bezier Curve
+      3. Curvature limit
+      4. limitation: cannot handle obstacle
+   6. Lattice Planner  

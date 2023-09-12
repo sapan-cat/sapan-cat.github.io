@@ -38,4 +38,3 @@ permalink: /work/markdown_notes/
 20. !!! danger danger: I wanted to finish this yesterday !
 21. !!! fail fail-ure is gimmick
 22. !!! done Done !
-

@@ -29,6 +29,9 @@ Table of Contents:
     1. [ ] Task 1
 
 ## August 30, 2023
+1. Use PPO on Tiny Env using CNNs
+   1. 1d/2d Observations
+   2.  
 
 ## July 06, 2023
 !!! todo Running hyperparameter experiments using [MLFlow](https://neptune.ai/vs/tensorboard-mlflow)
@@ -41,7 +44,6 @@ Table of Contents:
             <img src="work/../media/rl_example.png" width="60%" height="60%" >
            <div class="figcaption"></div>
         </div>
-    * 
 
 ## June 21, 2023
 !!! todo Run experiments with convolutional Observations/network
